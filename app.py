@@ -22,6 +22,10 @@ def prediction():
             mlmodel = pickle.load(model_file)
         res = mlmodel.predict([[float(nitro),float(phos),float(kp),float(tem),float(hum),float(ph),float(rain)]])
         print(res)
+        conn = sqilte1.connect('cropdata.db')
+        cur = conn.cursor()
+        cur.excute('''Insert intro crop values()''')
+
         return render_template('result.html',res=res[0])
     else:
         return render_template('prediction.html')
