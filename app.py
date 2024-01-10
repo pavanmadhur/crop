@@ -35,7 +35,7 @@ def prediction():
 def showdata():
     conn = sqlite3.connect('cropdata.db')
     cur = conn.cursor()
-    cur.execute("SELECT * FROM CROP")
+    cur.execute("SELECT * FROM cropdata")
     x = cur.fetchall()
     li  = []
     for i in x:
