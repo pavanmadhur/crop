@@ -47,7 +47,7 @@ def showdata():
         p['Humidity'] = i[4]
         p['Ph'] = i[5]
         p['Rainfall'] = i[6]
-        p['Result'] = i[7]
+        p['Prediction'] = i[7]
         li.append(p)
     return render_template('showdata.html',data = li)
 
