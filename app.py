@@ -25,12 +25,19 @@ def prediction():
         print(res)
         conn = sqlite3.connect('Cropdata.db')
         cur = conn.cursor()
-        cur.execute(f"""Insert intro crop values ({nitro},{phos},{kp},{tem},{hum},{ph},{rain},'{res[0]}')""")
+        cur.execute(f"""Insert into crop values ({nitro},{phos},{kp},{tem},{hum},{ph},{rain},'{res[0]}')""")
         conn.commit()
         return render_template('result.html',res=res[0])
     else:
         return render_template('prediction.html')
 
+"""@app.route('/showdata',methods = ['GET','POST'])
+def showdata():
+    conn = sqlite3.connect('Cropdata.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM crop prediction")
+    print(cur.fetchall())
+    return render_template('showdata.db')"""
 
     
 if __name__=='__main__':
