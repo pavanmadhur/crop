@@ -24,7 +24,7 @@ def prediction():
         print(res)
         conn = sqilte1.connect('cropdata.db')
         cur = conn.cursor()
-        cur.excute('''Insert intro crop values()''')
+        cur.excute('''Insert intro crop values({nitro},{phos},)''')
 
         return render_template('result.html',res=res[0])
     else:
